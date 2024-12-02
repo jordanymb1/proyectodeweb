@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Importar Link de React Router
 import "./Inicio.css";
 import Logo from "../assets/Logotipo/Logo.png";
 import userLogo from "../assets/Logotipo/user_logo.png";
@@ -39,9 +39,10 @@ const Inicio = () => {
         <div>
             <header>
                 <div className="logo">
-                    <a href="/inicio">
+                    {/* Cambiar <a> por <Link> */}
+                    <Link to="/inicio">
                         <img src={Logo} alt="Logotipo de Publicaciones Académicas" />
-                    </a>
+                    </Link>
                 </div>
                 <section className="banner">
                     <h1>Publicaciones Académicas</h1>
@@ -51,9 +52,9 @@ const Inicio = () => {
                         <img className="user_logo" src={userLogo} alt="Usuario" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="/perfil">Editar Perfil</a>
-                        <a href="/mispublicaciones">Mis Publicaciones</a>
-                        <a href="/">Cerrar Sesión</a>
+                        <Link to="/perfil">Editar Perfil</Link>
+                        <Link to="/mispublicaciones">Mis Publicaciones</Link>
+                        <Link to="/">Cerrar Sesión</Link>
                     </div>
                 </div>
             </header>
