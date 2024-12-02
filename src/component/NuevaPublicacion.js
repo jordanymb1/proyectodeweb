@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Importa Link
 import "./Nuevapublicacion.css";
 import Logo from "../assets/Logotipo/Logo.png";
 import userLogo from "../assets/Logotipo/user_logo.png";
@@ -41,9 +41,10 @@ const NuevaPublicacion = () => {
         <div>
             <header>
                 <div className="logo">
-                    <a href="/inicio">
+                    {/* Cambiar <a> por <Link> para evitar recarga completa */}
+                    <Link to="/inicio">
                         <img src={Logo} alt="logo" />
-                    </a>
+                    </Link>
                 </div>
                 <section className="banner">
                     <h1>Publicaciones Académicas</h1>
@@ -53,9 +54,9 @@ const NuevaPublicacion = () => {
                         <img className="user_logo" src={userLogo} alt="Usuario" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="/perfil">Editar Perfil</a>
-                        <a href="/mis-publicaciones">Mis publicaciones</a>
-                        <a href="/">Cerrar Sesión</a>
+                        <Link to="/perfil">Editar Perfil</Link>
+                        <Link to="/mis-publicaciones">Mis publicaciones</Link>
+                        <Link to="/">Cerrar Sesión</Link>
                     </div>
                 </div>
             </header>
