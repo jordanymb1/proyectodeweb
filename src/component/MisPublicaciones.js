@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Importar Link para navegación sin recargas
 import "./Inicio.css";
 import Logo from "../assets/Logotipo/Logo.png";
 import userLogo from "../assets/Logotipo/user_logo.png";
@@ -22,9 +23,10 @@ const MisPublicaciones = () => {
         <div>
             <header>
                 <div className="logo">
-                    <a href="/inicio">
+                    {/* Usar Link para redirigir a la página de inicio */}
+                    <Link to="/inicio">
                         <img src={Logo} alt="logo" />
-                    </a>
+                    </Link>
                 </div>
                 <section className="banner">
                     <h1>Mis Publicaciones</h1>
@@ -34,8 +36,9 @@ const MisPublicaciones = () => {
                         <img className="user_logo" src={userLogo} alt="Usuario" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="/perfil">Editar Perfil</a>
-                        <a href="/">Cerrar Sesión</a>
+                        {/* Usar Link para navegación fluida */}
+                        <Link to="/perfil">Editar Perfil</Link>
+                        <Link to="/">Cerrar Sesión</Link>
                     </div>
                 </div>
             </header>
@@ -52,9 +55,11 @@ const MisPublicaciones = () => {
                                     <p>
                                         <strong>Autor:</strong> {publicacion.autor}
                                     </p>
+                                    {/* Enlace para abrir el PDF */}
                                     <a href={publicacion.pdf} target="_blank" rel="noopener noreferrer">
                                         Ver PDF
                                     </a>
+                                    {/* Botón para eliminar publicación */}
                                     <button onClick={() => eliminarPublicacion(index)}>Eliminar</button>
                                 </li>
                             ))}
@@ -64,8 +69,6 @@ const MisPublicaciones = () => {
                     )}
                 </section>
             </main>
-
-            
         </div>
     );
 };
