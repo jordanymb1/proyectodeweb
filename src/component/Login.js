@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const navigate = useNavigate(); // Hook para navegar
+    const navigate = useNavigate(); // Hook para navegación
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -47,7 +47,7 @@ const Login = () => {
 
                 <button type="submit">Iniciar Sesión</button>
                 <p>
-                    ¿No tienes una cuenta? <a href="/registro">Regístrate aquí</a>
+                    ¿No tienes una cuenta? <Link to="/registro">Regístrate aquí</Link>
                 </p>
                 {error && <div className="error">{error} </div>}
             </form>
