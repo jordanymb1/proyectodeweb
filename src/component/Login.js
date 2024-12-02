@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate(); // Hook para navegar
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,8 +18,8 @@ const Login = () => {
         if (!user) {
             setError("Credenciales incorrectas. Intente nuevamente.");
         } else {
-            // Redirige al inicio
-            window.location.href = "/Inicio";
+            // Redirigir al componente Inicio
+            navigate("/inicio");
         }
     };
 
@@ -46,7 +47,7 @@ const Login = () => {
 
                 <button type="submit">Iniciar Sesión</button>
                 <p>
-                    ¿No tienes una cuenta? <Link to="/registro">Regístrate aquí</Link>
+                    ¿No tienes una cuenta? <a href="/registro">Regístrate aquí</a>
                 </p>
                 {error && <div className="error">{error} </div>}
             </form>
