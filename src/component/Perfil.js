@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom"; // Importar Link de React Router
 import "./styles/Perfil.css";
 import Logo from "../assets/Logotipo/Logo.png";
 import userLogo from "../assets/Logotipo/user_logo.png";
-
 
 const Perfil = () => {
   const [nombre, setNombre] = useState('');
@@ -38,38 +38,31 @@ const Perfil = () => {
       return false;
     }
 
-    // Aquí agregarías la lógica para actualizar el perfil en la base de datos
-    // Hacer una llamada a una API para guardar los cambios
-
     alert("Registro exitoso.");
     return true;
   };
 
-  // Toggle del dropdown
-  //const toggleDropdown = () => {
-    //const dropdownContent = document.getElementById("dropdown-options");
-    //dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-  //};
-
   return (
     <div>
       <header>
-            <div className="logo">
-                    <a href="/inicio">
-                        <img src={Logo} alt="logo" />
-                    </a>
-            </div>
+        <div className="logo">
+          {/* Usar Link para redirigir a la página de inicio */}
+          <Link to="/inicio">
+            <img src={Logo} alt="logo" />
+          </Link>
+        </div>
         <section className="banner">
           <h1>Editar Perfil</h1>
         </section>
         <div className="user-dropdown">
-                <button className="dropbtn" onClick={() => {}}>
-                        <img className="user_logo" src={userLogo} alt="Usuario" />
-                </button>
-          <div className="dropdown-content" id="dropdown-options">
-            <a href="/perfil">Editar Perfil</a>
-            <a href="/mis-publicaciones">Mis publicaciones</a>
-            <a href="/">Cerrar Sesión</a>
+          <button className="dropbtn">
+            <img className="user_logo" src={userLogo} alt="Usuario" />
+          </button>
+          <div className="dropdown-content">
+            {/* Usar Link para navegación sin recarga */}
+            <Link to="/perfil">Editar Perfil</Link>
+            <Link to="/mis-publicaciones">Mis Publicaciones</Link>
+            <Link to="/">Cerrar Sesión</Link>
           </div>
         </div>
       </header>
@@ -137,8 +130,6 @@ const Perfil = () => {
           </section>
         </div>
       </section>
-
-      
     </div>
   );
 };
