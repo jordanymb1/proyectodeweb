@@ -61,7 +61,7 @@ const Perfil = () => {
           <div className="dropdown-content">
             {/* Usar Link para navegación sin recarga */}
             <Link to="/perfil">Editar Perfil</Link>
-            <Link to="/mis-publicaciones">Mis Publicaciones</Link>
+            <Link to="/mispublicaciones">Mis Publicaciones</Link>
             <Link to="/">Cerrar Sesión</Link>
           </div>
         </div>
